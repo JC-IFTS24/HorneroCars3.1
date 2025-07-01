@@ -1,0 +1,7 @@
+{
+  "name": "HorneroCars2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

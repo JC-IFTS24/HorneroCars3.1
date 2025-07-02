@@ -67,7 +67,7 @@ export class ReservarPage {
       alert('Reserva completada con éxito.');
       this._router.navigate(['/mis-reservas']);
     }
-    
+
   }
 
   //método para comprobar errores en los controles del form segun el validator y si la casilla ha sido tocada.
@@ -246,7 +246,7 @@ export class ReservarPage {
 
   ocultarMapa() {
     this.urlGoogleMaps = null;
-    this.errorMensaje = null; 
+    this.errorMensaje = null;
   }
 
 }

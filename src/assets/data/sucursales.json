@@ -50,5 +50,31 @@
             "lat": -41.1335,
             "lng": -71.3103
         }
+    },
+    {
+    "id": "SNC",
+    "nombre": "Hornero Cars - San Cristóbal",
+    "ciudad": "Buenos Aires",
+    "provincia": "CABA",
+    "direccion": "Av. San Juan 2600, C1234ABC",
+    "telefono": "+54 11 4931-8765",
+    "horario": "Lunes a Viernes de 9:00 a 19:00. Sábados de 9:00 a 13:00.",
+    "coordenadas": {
+        "lat": -34.6234,
+        "lng": -58.4021
     }
+    },
+    {
+    "id": "ALM",
+    "nombre": "Hornero Cars - Almagro",
+    "ciudad": "Buenos Aires",
+    "provincia": "CABA",
+    "direccion": "Av. Rivadavia 3900, C1203DEF",
+    "telefono": "+54 11 4981-1234",
+    "horario": "Lunes a Viernes de 9:30 a 19:30. Sábados de 9:00 a 13:00.",
+    "coordenadas": {
+        "lat": -34.6075,
+        "lng": -58.4140
+    }
+}
 ]

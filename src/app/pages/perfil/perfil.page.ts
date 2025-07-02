@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators, EmailValidator } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 import { CameraService } from 'src/app/services/camera.service';
 import { Router, RouterLink } from '@angular/router'; //para que funcione la llamada en el html
 import { DatosPerfilService } from 'src/app/services/datos-perfil.service'; // Importa el servicio datos-perfil
 import { ToastController } from '@ionic/angular';
+import { ReactiveFormsModule, FormBuilder, FormsModule, Validator, Validators, FormGroup } from '@angular/forms';
 
 
 
@@ -16,11 +17,13 @@ import { ToastController } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
 })
-export class PerfilPage implements OnInit {
 
+
+export class PerfilPage implements OnInit {
+  private fb = inject(FormBuilder)
   nombreArchivo: string = 'Ningún archivo seleccionado'; // Le dejo un nombre por default porque yafu
   fotoBase64: string | undefined;
-  formPerfil!: FormGroup;
+  formPerfil: FormGroup;
   segmentoActual: string = 'mis-datos';   // Variable para controlar el segmento activo, por defecto 'mis-datos'
 
 
@@ -31,12 +34,12 @@ export class PerfilPage implements OnInit {
   )  {  // Inyecta servicios
 
     //Validators para el formgroup (formPerfil)
-    this.formPerfil = new FormGroup({
-      nombre: new FormControl('', Validators.required,),
-      apellido: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required,),
-      telefono: new FormControl('', Validators.required),
-      fechaNacimiento: new FormControl('', Validators.required),
+      this.formPerfil = this.fb.group({
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      telefono: ['', [Validators.required]],
+      fechaNacimiento: ['', [Validators.required]],
     });
     this.cargarDatosGuardados();  //carga los datos guardados en el formulario
   }

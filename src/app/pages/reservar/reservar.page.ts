@@ -37,6 +37,9 @@ export class ReservarPage {
   nombreSucursalCercana: string | undefined = undefined;
   urlGoogleMaps: string | null = null;
 
+  //  Para controlar la visibilidad del mapa
+  mostrarMapaFlag: boolean = false;
+
   //Inyecto el form builder y luego instancio el formulario de reserva
   constructor(private _formBuilder: FormBuilder, private _reservarService: ReservarService, private _router: Router,
     private _httpClient: HttpClient) {
@@ -108,7 +111,7 @@ export class ReservarPage {
     if (this.formReserva.invalid) {
       return;
     }
-    this._router.navigate(['/mis-reservas'])
+    this._router.navigate(['home/mis-reservas'])
   }
 
   //Geoloca 2
@@ -240,22 +243,25 @@ export class ReservarPage {
     return null;
   }
 
-  ocultarMapa() {    
-    const mapa = document.getElementById('mapa-iframe');
-    const botonObtener = document.getElementById('obtenerPosicion');
-    const botonOcultar = document.getElementById('ocultarMapa');
-    if (mapa && botonObtener && botonOcultar) {
-      mapa.remove();
-      botonObtener.remove();
-      botonOcultar.remove();
-      this.limpiarMensajes();
-    }
-  }
+  // Método para ocultar el mapa
+  ocultarMapa() {
+    this.mostrarMapaFlag = false;
+    this.limpiarMensajes();
+  }
+    
+
+  // Método para mostrar el mapa (si hay URL disponible)
+  mostrarMapa() {
+    if (this.googleMapsUrl) { // Solo si hay una URL válida para mostrar
+      this.mostrarMapaFlag = true;
+    }
+  }
+   
 
   private limpiarMensajes() {
     this.errorMensaje = null;
     this.nombreSucursalCercana = undefined;
-    this.urlGoogleMaps = null;
+    
   }
 
 }

@@ -1,0 +1,105 @@
+
+
+ion-title {
+    text-align: center;
+    padding-top: 10%; //le agregamos un poco de separacion
+}
+
+ion-card-title { 
+    font-weight: 600;
+}
+
+ion-content {
+    overflow: hidden; //ocultamos la barra
+    --background: #f1f1f178;
+}
+
+ion-card {
+    box-shadow: none;
+    --background: #f1f1f178;
+}
+
+// --- estilos para cuando icono esta seleccionado --- // 
+ion-segment-button {
+    --indicator-color: #E8751A; //modifica el default de la linea debajo
+}
+
+ion-icon {
+    color: #52575e;
+    --color-checked: #222831;
+}
+
+ion-label {
+    color: #222831;
+    font-size: smaller;
+}
+
+// --- estilos para iconos especificos --- // 
+
+#sacarFoto {
+    color: azure;
+}
+
+#eliminarFoto {
+    color: azure;
+}
+
+// --- estilos para img cargada --- // 
+ion-img {
+    margin-bottom: 2rem;
+}
+
+
+
+// --- estilos para contenedor de la lista ---
+
+.contenedor-lista {
+    display: flex;
+    flex-direction: column; // Para que la lista y el boton esten en columna 
+    justify-content: center; // Centra verticalmente el contenido
+    min-height: 100%; // Asegura que ocupe toda la altura disponible en ion-content
+    height: 100%;
+    box-shadow: #1e2428;
+}
+
+
+// --- Estilos para la ion-list ---
+
+.lista-perfil {
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: scroll; //le dejamos una barrra para scrollear solo en la lista
+    align-items: center;
+}
+
+// --- Estilos para los botones  ---
+
+.btnGuardar {
+    --background: #E8751A; //hay que agregarle color hornerocars (?
+
+    margin-bottom: 5px;
+}
+
+.btnGuardar:hover {
+    --background: #D46B12; //hay que agregarle color hornerocars (?
+}
+
+.btnCancelar {
+    --background: #8f8c89;
+
+    margin-bottom: 5px;
+}
+
+.btnCancelar:hover {
+    --background: #74706d;
+}
+
+.btnSacarFoto {
+    --background: #E8751A; //hay que agregarle color hornerocars (?
+    margin-bottom: 2rem;
+}
+
+.btnSacarFoto:hover {
+    --background: #D46B12; //hay que agregarle color hornerocars (?
+}

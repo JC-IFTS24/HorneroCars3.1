@@ -109,7 +109,7 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/global.scss", "src/theme/variables.scss"],
+            "styles": ["src/global.scss", "src/theme/variables.scss", "https://cdn.jsdelivr.net/npm/ionicons@6.0.3/dist/css/ionicons.min.css"],
             "scripts": []
           },
           "configurations": {
@@ -129,7 +129,10 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

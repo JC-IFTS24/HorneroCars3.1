@@ -1,0 +1,49 @@
+<ion-content class="ion-padding">
+
+  @for (reserva of reservas; track reserva.reservaId) {
+  <ion-card class="reserva-card">
+    <ion-card-header>
+      <ion-card-title>{{ reserva.vehiculo }}</ion-card-title>
+      <ion-card-subtitle>Estado: {{ reserva.estado }}</ion-card-subtitle>
+      <ion-badge [ngClass]="getClaseEstado(reserva.estado)">
+        {{ reserva.estado }}
+      </ion-badge>
+      @if (reserva.estado === 'Pagada') {
+      <ion-badge color="success">
+        Reserva Pagada
+      </ion-badge>
+      }
+    </ion-card-header>
+
+    <ion-card-content>
+      <p><strong>Titular:</strong> {{ reserva.userNombre }}</p>
+      <p><strong>Inicio:</strong> {{ reserva.fechaInicio }}</p>
+      <p><strong>Devolución:</strong> {{ reserva.fechaDevolucion }}</p>
+      @if (reserva.estado !== 'Pagada' && reserva.estado !== 'Cancelada') {
+      <div class="botones-reserva">
+        <ion-button expand="block" fill="outline" color="danger" (click)="cancelarReserva(reserva.reservaId)">
+          Cancelar Reserva
+        </ion-button>
+
+        <ion-button expand="block" class="btn-principal" (click)="irAPagar(reserva.reservaId)">
+          Pagar Reserva
+        </ion-button>
+      </div>
+      }
+    </ion-card-content>
+  </ion-card>
+  } @empty {
+  <ion-text color="medium">
+    No tienes reservas registradas aún.
+  </ion-text>
+  }
+
+
+  @if (reservas.length < reservasTodas.length) { <ion-infinite-scroll threshold="100px"
+    (ionInfinite)="cargarMasReservas($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Cargando más reservas...">
+    </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    }
+
+</ion-content>

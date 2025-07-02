@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+  <ion-button expand="block" (click)="obtenerPosicionActual()">Sucursal mas cercana</ion-button>
+@if (errorMensaje) {
+<p class="ion-text-danger">{{errorMensaje}}</p>
+}
+@if(googleMapsUrl){
+<iframe [src]="googleMapsUrl | urlSegura" class="mapa-iframe"></iframe>
+
+  <ion-button expand="block" (click)="ocultarMapa()">Ocultar Mapa</ion-button>
+  }@else {
+    
+  }
+  <ion-title class="ion-text-center"><ion-icon name="calendar-outline"></ion-icon></ion-title>
+  <ion-title class="ion-text-center">Nueva reserva</ion-title>
+  <form [formGroup]="formReserva" (ngSubmit)="submitForm()" id="formReserva">
+    <ion-item class="item">
+      <ion-input label="Nombre" labelPlacement="stacked" fill="outline" placeholder="Ingrese su nombre"
+        errorText="Mínimo de 3 caracteres" aria-label="Nombre" id="userNombre" formControlName="userNombre"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-select label="Vehículo" labelPlacement="stacked" fill="outline" errorText="Debe seleccionar un vehiculo"
+        aria-label="Vehiculos" placeholder="Seleccione el vehículo" formControlName="vehiculo">
+        <ion-select-option value="Sedan Confort">Sedan Confort</ion-select-option>
+        <ion-select-option value="Económico">Económico</ion-select-option>
+        <ion-select-option value="SUV">SUV</ion-select-option>
+        <ion-select-option value="Utilitario">Utilitario</ion-select-option>
+        <ion-select-option value="Lujo">Lujo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input label="Fecha de Inicio" labelPlacement="stacked" errorText="Fecha inválida" type="date"
+        aria-label="Fecha de Inicio" formControlName="fechaInicio">
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input label="Fecha de Devolucion" labelPlacement="stacked" errorText="Fecha inválida" type="date"
+        aria-label="Fecha de Devolución" formControlName="fechaDevolucion">
+      </ion-input>
+    </ion-item>
+
+    <ion-button id="enviarForm" type="submit" expand="block" (click)="irAMisReservas()">Reservar</ion-button>
+  </form>

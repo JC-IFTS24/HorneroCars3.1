@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Hornero<span>Cars</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding"><div class="logo-container">
+      <img src="assets/img/LogoBlanco1.png" class="logo-img light" />
+      <img src="assets/img/LogoNegro1.png" class="logo-img dark" />
+    </div>
+    <h1>Login</h1>
+  <div class="login-container">
+
+    
+    
+
+    <form [formGroup]="iniciarSesionForm" (ngSubmit)="enviarForm()">
+      <ion-item class="itemInputs">
+        <ion-label class="label" position="floating">Email</ion-label>
+        <ion-input type="email" formControlName="email" errorText="Ingrese un tipo email valido"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="label" position="floating">Contraseña</ion-label>
+        <ion-input
+          [type]="contraseniaVisible ? 'text' : 'password'"
+          formControlName="contraseña"
+          errorText="Ingrese minimo 4 caracteres">
+        </ion-input>
+      </ion-item>
+
+      <!-- Botón mostrar/ocultar contraseña separado -->
+      <ion-button id="boton3" expand="block" fill="clear" size="small" (click)="mostrarContrasenia()">
+        <ion-icon
+          slot="start"
+          [name]="contraseniaVisible ? 'eye-off' : 'eye'">
+        </ion-icon>
+        {{ contraseniaVisible ? 'Ocultar' : 'Mostrar' }} contraseña
+      </ion-button>
+
+      <ion-button
+        id="boton1"
+        expand="block"
+        type="submit"
+        [disabled]="iniciarSesionForm.invalid"
+        class="ion-margin-top">
+        Iniciar sesión
+      </ion-button>
+
+      <ion-button
+      id="boton2"
+        expand="block"
+        fill="outline"
+        (click)="registrarse()"
+        [disabled]="iniciarSesionForm.invalid">
+        Registrarse
+      </ion-button>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title id="footerTitulo" class="ion-text-center">© 2025 HorneroCars</ion-title>
+  </ion-toolbar>
+</ion-footer>

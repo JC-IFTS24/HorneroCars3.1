@@ -1,0 +1,126 @@
+/*     ENCABEZADO (HEADER) */
+ion-toolbar {
+  --background: var(--tercer-color);
+  /* Navbar */
+}
+
+ion-title {
+  color: var(--quinto-color);
+  /* Texto claro */
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+ion-title span {
+  color: var(--primer-color);
+  /* Color HorneroCars naranja */
+}
+
+/*         FOOTER          */
+.footer-content {
+  color: var(--quinto-color);
+  /* Texto claro */
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/*     TARJETAS RESERVA    */
+
+ion-content {
+  --background: var(--cuarto-color);
+  /* Fondo claro */
+  padding-bottom: 2rem;
+}
+
+ion-card {
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--sexto-color);
+  /* borde claro */
+  animation: fadeIn 0.4s ease-in !important;
+  animation-fill-mode: both;
+}
+
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+ion-card-subtitle {
+  color: var(--ion-color-medium);
+  font-size: 0.9rem;
+}
+
+ion-card-content p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+/*      BOTONES TARJETA    */
+.botones-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* Puedes usar estas clases directamente si no querés depender solo de variables.scss */
+.btn-principal {
+  --background: var(--primer-color);
+  --color: var(--quinto-color);
+  --box-shadow: none;
+}
+
+.btn-principal-outline {
+  --border-color: var(--primer-color);
+  --color: var(--primer-color);
+  --background: transparent;
+  --box-shadow: none;
+}
+
+/*        ANIMACIONES      */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ion-badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Estados de reserva */
+.estado-pagada {
+  background-color: var(--hornero-exito);
+  color: white;
+}
+
+.estado-pendiente {
+  background-color: var(--hornero-advertencia);
+  color: #000;
+}
+
+.estado-cancelada {
+  background-color: var(--hornero-error);
+  color: white;
+}
+
+.estado-default {
+  background-color: var(--ion-color-medium);
+  color: white;
+}

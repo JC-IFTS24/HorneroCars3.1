@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="perfil"> <!--boton con ruta al home/reservas-->
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Hornero<span>Cars</span></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmarLogOut()"> <!-- boton para confirmar logout -->
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+  
+<ion-content>
+  <ion-router-outlet></ion-router-outlet> <!--aca van contenidos todos los componentes hijo-->
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom"> <!-- footer con iconos de navegacion -->
+    <ion-tab-button tab="home" routerLink="reservar" routerDirection="root">
+      <ion-icon name="car-sport-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon name="car-sport" class="tab-icon-filled"></ion-icon>
+      <ion-label>Reservar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="mis-reservas" routerLink="mis-reservas" routerDirection="root">
+      <ion-icon name="list-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon name="list" class="tab-icon-filled"></ion-icon>
+      <ion-label>Mis Reservas</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="perfil" routerLink="perfil" routerDirection="root">
+      <ion-icon name="person-circle-outline" class="tab-icon-outline"></ion-icon>
+      <ion-icon name="person-circle" class="tab-icon-filled"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

@@ -1,0 +1,94 @@
+ion-header {
+    padding: 0.5em;
+    background-color: #1b1b1a;
+    color: #f1f1f1;
+
+  ion-icon {  //icono dentro del header 
+        font-size: 38px;
+        --ionicon-size: 38px;
+        color: #514f4f;
+        margin-bottom: 5px;
+    }
+}
+
+ion-toolbar {
+    --background: #1e1c1cde;
+    --color: #f1f1f1;
+}
+
+ion-title {
+    color: antiquewhite;
+}
+
+ion-title span {
+    color: var(--primer-color);
+}
+
+ion-footer {
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+ion-tab-bar {
+    --background: ##f1f1f1;
+    --border: none;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+// --- estilos para cada icono y su label --- // 
+ion-tab-button {
+
+    .tab-icon-filled {  
+        display: none; //oculta el rellenito por default
+    }
+    .tab-icon-outline {
+        display: block; //muestra el de lineas por default
+    }
+
+    ion-icon {
+        font-size: 38px;
+        --ionicon-size: 38px;
+        color: #636161;
+        margin-bottom: 5px;
+    }
+
+    ion-label {
+        font-size: 0.8em;
+        color: #636161;
+    }
+
+    //  estilos para hover
+    &:hover {
+        ion-icon {
+            color: #2b2a2a;
+        }
+
+        ion-label {
+            color: #2b2a2a;
+        }
+    }
+}
+
+
+// --- estilos para cuando boton esta seleccionado --- // 
+ion-tab-button[aria-selected="true"] {
+
+    .tab-icon-outline {
+        display: block; // Mostrar el el icono outline
+    }
+
+    .tab-icon-filled {
+        display: none; // Ocultar el rellenito
+    }
+
+    ion-icon {
+        color: #2b2a2a; 
+    }
+
+    ion-label {
+        color: #2b2a2a; 
+    }
+}

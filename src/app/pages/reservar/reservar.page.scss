@@ -1,0 +1,66 @@
+//Estilos toolbar
+
+ion-toolbar {
+    --background: #1e1c1cde;
+}
+
+ion-title {
+    color: antiquewhite;
+}
+
+ion-title span {
+    color: var(--primer-color);
+}
+
+//Estilo titulo y contenido
+ion-content {
+    --background: var(--cuarto-color);
+    ion-icon {
+        font-size: 38px;
+        --ionicon-size: 38px;
+        color: #2b2a2a;
+        margin-bottom: 0;
+    }
+    
+    ion-title {
+        margin: 25px 0 20px 0;
+        font-weight: 600;
+        color: var(--tercer-color);
+    }
+}
+
+//Estilos formulario
+
+#formReserva {
+    margin: 1.5rem;
+    padding: 5px;    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+
+    ion-input {
+        margin: 15px;
+    }
+
+    ion-select {
+        margin: 15px;
+    }
+
+    ion-button {
+        --background: var(--primer-color);
+        --color: var(--quinto-color);
+    }
+}
+
+//geoloca
+
+.mapa-iframe {
+  width: 100%; /* El mapa ocupará todo el ancho disponible */
+  height: 300px; /* Define una altura fija para el mapa, ajusta según sea necesario */
+  border: 1px solid #ddd; /* Agrega un borde sutil */
+  border-radius: 8px; /* Bordes redondeados para una apariencia más moderna */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+  margin-top: 15px; /* Espacio superior para separarlo del botón */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+}
+

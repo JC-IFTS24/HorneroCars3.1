@@ -1,10 +1,12 @@
 <ion-content [fullscreen]="true">
-  <ion-button expand="block" (click)="obtenerPosicionActual()">Sucursal mas cercana</ion-button>
+  <ion-button expand="block" (click)="obtenerPosicionActual()" id="obtenerPosicion">Sucursal mas cercana</ion-button>
   @if (errorMensaje) {
   <p class="ion-text-danger">{{errorMensaje}}</p>
   }
   @if(googleMapsUrl){
-  <iframe [src]="googleMapsUrl | urlSegura" class="mapa-iframe"></iframe>
+  <p>{{nombreSucursalCercana}}</p>
+  <iframe [src]="googleMapsUrl | urlSegura" class="mapa-iframe" id="mapa-iframe"></iframe>
+  <ion-button expand="block" (click)="ocultarMapa()" id="ocultarMapa">Ocultar mapa</ion-button>
   }
   <ion-title class="ion-text-center"><ion-icon name="calendar-outline"></ion-icon></ion-title>
   <ion-title class="ion-text-center">Nueva reserva</ion-title>

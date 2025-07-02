@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Form, FormsModule, Validators } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validator } from '@angular/forms';
 import { addIcons } from 'ionicons';
@@ -25,18 +25,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ReservarPage {
 
-
   formReserva: FormGroup; //Defino el form
   reservaNueva?: Reserva;
 
-  //Geoloca
+  //variables geolocalizacion//
   rutaSucursales = 'assets/data/sucursales.json'//ruta al json con las sucursales para traer latitud y longitud.
   sucursales: Sucursal[] = [];
   lat?: number;
   long?: number;
   errorMensaje?: string | null = null;
-
-  nombreSucursalCercana: string | null = null;
+  nombreSucursalCercana: string | undefined = undefined;
   urlGoogleMaps: string | null = null;
 
   //Inyecto el form builder y luego instancio el formulario de reserva
@@ -115,12 +113,8 @@ export class ReservarPage {
 
   //Geoloca 2
 
-  // limpio las variables
-  private limpiarMensajes(): void {
-    this.errorMensaje = '';
-    this.nombreSucursalCercana = null;
-    this.urlGoogleMaps = null;
-  }
+  // limpio las variables  
+  
   //--Geolocalizacion - copio el servicio--//
   private async otorgaPermisoDeUbicacion(): Promise<boolean> {
     console.log('Pidiendo permiso...');
@@ -226,6 +220,8 @@ export class ReservarPage {
     } else {
       this.errorMensaje = 'No se encontró ninguna sucursal cercana válida.';
     }
+
+    this.nombreSucursalCercana = sucursalMasCercana?.nombre;
     return sucursalMasCercana;
   }
 
@@ -244,9 +240,22 @@ export class ReservarPage {
     return null;
   }
 
-  ocultarMapa() {
-    this.urlGoogleMaps = null;
+  ocultarMapa() {    
+    const mapa = document.getElementById('mapa-iframe');
+    const botonObtener = document.getElementById('obtenerPosicion');
+    const botonOcultar = document.getElementById('ocultarMapa');
+    if (mapa && botonObtener && botonOcultar) {
+      mapa.remove();
+      botonObtener.remove();
+      botonOcultar.remove();
+      this.limpiarMensajes();
+    }
+  }
+
+  private limpiarMensajes() {
     this.errorMensaje = null;
+    this.nombreSucursalCercana = undefined;
+    this.urlGoogleMaps = null;
   }
 
 }

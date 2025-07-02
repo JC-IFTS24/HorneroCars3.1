@@ -15,13 +15,14 @@ ion-title span {
 //Estilo titulo y contenido
 ion-content {
     --background: var(--cuarto-color);
+
     ion-icon {
         font-size: 38px;
         --ionicon-size: 38px;
         color: #2b2a2a;
         margin-bottom: 0;
     }
-    
+
     ion-title {
         margin: 25px 0 20px 0;
         font-weight: 600;
@@ -33,7 +34,7 @@ ion-content {
 
 #formReserva {
     margin: 1.5rem;
-    padding: 5px;    
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background: white;
@@ -52,15 +53,14 @@ ion-content {
     }
 }
 
-//geoloca
+//geolocalizacion
 
 .mapa-iframe {
-  width: 100%;
-  height: 300px; /* altura fija */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 15px;
-  overflow: hidden; /* que los bordes redondeados se apliquen correctamente */
+    width: 100%;
+    height: 300px;/* altura fija */    
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    overflow: hidden;/* que los bordes redondeados se apliquen correctamente, sin mostrar las barras */
 }
-
